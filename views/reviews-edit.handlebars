@@ -1,21 +1,11 @@
-<form method="POST" action="/reviews/{{review._id}}?_method=PUT">
-  {{> reviews-form}}
-  <fieldset>
-    <!-- RATING -->
-    <p>
-      <select name="rating" select={{review.rating}}>
-        <option value=0>0</option>
-        <option value=1>1</option>
-        <option value=2>2</option>
-        <option value=3>3</option>
-        <option value=4>4</option>
-        <option value=5>5</option>
-      </select>
-    </p>
-  </fieldset>
-  <!-- BUTTON -->
-  <p>
-    <button type="submit">Save Review</button>
-  </p>
-
-</form>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <form method="POST" action="/reviews/{{review._id}}?_method=PUT">
+      {{> reviews-form}}
+      <!-- BUTTON -->
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save Review</button>
+      </div>
+    </form>
+  </div>
+</div>
