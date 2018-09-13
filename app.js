@@ -20,9 +20,18 @@ app.use(bodyParser.urlencoded({ extended: true}));
 const Review = mongoose.model('Review', {
   title: String,
   description: String,
-  movieTitle: String
+  movieTitle: String,
+  rating: Number
 });
 
+app.post('/reviews', (req,res) => {
+  Review.create(req.body).then((review) =>{
+    // console.log(review);
+    res.redirect('/');
+  }).catch((err) => {
+    console.log(err.message);
+  })
+});
 
 app.get('/', (req, res) => {
   Review.find().then(reviews => {
@@ -31,21 +40,22 @@ app.get('/', (req, res) => {
     .catch(err => {
       console.log(err);
     })
-})
- app.post('/reviews', (req,res) => {
-   Review.create(req.body).then((review) =>{
-     console.log(review);
-     res.redirect('/');
-   }).catch((err) => {
-     console.log(err.message);
-   })
-   // res.render(reviews-new', {});
- })
+});
+
+app.get('/reviews/:id', (req,res) => {
+  Review.findById(req.params.id).then((review) => {
+    res.render('reviews-show', {review: review})
+  }).catch((err) => {
+      console.log("/rviews/:id")
+      console.log(err.message);
+  })
+});
 
 app.get('/reviews/new', (req,res) => {
   res.render('reviews-new', {});
-})
+  console.log(err)
+});
 
 app.listen(3000, () => {
   console.log('App listening on port 3000!')
-})
+});
