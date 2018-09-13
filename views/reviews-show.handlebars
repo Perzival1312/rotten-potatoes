@@ -1,7 +1,5 @@
-
-<a href="/">Back to Home</a>
 <div class="row">
-  <div class="col-sm-5 col-sm-offset-1">
+  <div class="col-sm-6 col-sm-offset-1">
     <h1>{{review.title}}</h1>
     <h2>{{review.movieTitle}}</h2>
     <p>{{review.description}}</p>
@@ -10,5 +8,15 @@
     <p><form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
         <button class="btn btn-primary" type="submit">Delete</button>
     </form></p>
+
+
+
+    <hr>
+
+    <!-- Show Comments -->
+    {{#each comments}}
+      {{> comment}}
+    {{/each}}
+    {{> comment-form}}
   </div>
 </div>

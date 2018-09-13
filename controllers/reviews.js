@@ -7,7 +7,7 @@ module.exports = function (app, Review) {
         console.log(err);
       })
   });
-  // CREATE
+// CREATE
   app.post('/reviews', (req,res) => {
     Review.create(req.body).then((review) =>{
       console.log(review);
@@ -17,14 +17,26 @@ module.exports = function (app, Review) {
     })
   });
 // SHOW
-  app.get('/reviews/:id', (req,res) => {
-    Review.findById(req.params.id).then((review) => {
-      res.render('reviews-show', {review: review})
-    }).catch((err) => {
-        console.log("/reviews/:id")
-        console.log(err.message);
-    })
-  });
+  // app.get('/reviews/:id', (req,res) => {
+  //   Review.findById(req.params.id).then((review) => {
+  //     res.render('reviews-show', {review: review})
+  //   }).catch((err) => {
+  //       console.log("/reviews/:id")
+  //       console.log(err.message);
+  //   })
+  // });
+
+//   app.get('/reviews/:id', (req, res) => {
+//   Review.findById(req.params.id).then(review => {
+//     Comment.find({ reviewId: req.params.id }).then(comments => {
+//       res.render('reviews-show', { review: review, comments: comments })
+//     })
+//   }).catch((err) => {
+//     console.log("/reviews/:id")
+//     console.log(err.message)
+//   });
+// });
+
 // EDIT
   app.get('/reviews/:id/edit', function (req,res) {
     Review.findById(req.params.id, function(err, review){
@@ -35,7 +47,7 @@ module.exports = function (app, Review) {
   app.get('/reviews/new', (req,res) => {
     res.render('reviews-new', {});
   });
-  // UPDATE
+// UPDATE
   app.put('/reviews/:id', (req,res) => {
     Review.findByIdAndUpdate(req.params.id, req.body)
     .then(review => {
@@ -44,7 +56,7 @@ module.exports = function (app, Review) {
       console.log(err.message)
     })
   })
-  // DESTROY
+// DESTROY
   app.delete('/reviews/:id', function (req,res) {
     console.log("DELETE review");
     Review.findByIdAndRemove(req.params.id).then((review) => {
