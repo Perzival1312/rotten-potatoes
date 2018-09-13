@@ -1,9 +1,9 @@
-<form method="POST" action="/reviews">
+<form method="POST" action="/reviews/{{review._id}}?_method=PUT">
   {{> reviews-form}}
   <fieldset>
     <!-- RATING -->
     <p>
-      <select name="rating">
+      <select name="rating" select={{review.rating}}>
         <option value=0>0</option>
         <option value=1>1</option>
         <option value=2>2</option>
@@ -13,7 +13,6 @@
       </select>
     </p>
   </fieldset>
-
   <!-- BUTTON -->
   <p>
     <button type="submit">Save Review</button>
