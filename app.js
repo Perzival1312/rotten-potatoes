@@ -54,7 +54,7 @@ app.get('/reviews/:id/edit', function (req,res) {
 
 app.get('/reviews/new', (req,res) => {
   res.render('reviews-new', {});
-  console.log(err)
+  console.log(err.message)
 });
 
 // update
@@ -64,6 +64,14 @@ app.put('/reviews/:id', (req,res) => {
     res.redirect(`/reviews/${review._id}`)
   }).catch(err => {
     console.log(err.message)
+  })
+})
+app.delete('/reviews/:id', function (req,res) {
+  console.log("DELETE review");
+  Review.findByIdAndRemove(req.params.id).then((review) => {
+    res.redirect('/');
+  }).catch((err) => {
+    console.log(err.message);
   })
 })
 
