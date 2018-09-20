@@ -1,13 +1,35 @@
 <div class="row">
     <div class="col-sm-4">
         <img class="img-responsive" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}"/>
+        <br>
+        <!-- put movie infor here! -->
+
     </div>
     <div class="col-sm-8">
         <h1>{{movie.title}}</h1>
         <p class="lead">{{movie.overview}}</p>
+        <br>
+        <div class=" embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
+        </div>
     </div>
 </div>
-<br><br>
-<div class="col-sm-12 embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
+<br> <hr> <br>
+<div class="text-right">
+    <a href="/movies/{{movie.id}}/reviews/new" class="btn btn-primary">Write Review</a>
 </div>
+<br><br><br>
+<!-- REVIEWS IN COLOUMNS 4 PER ROW PREFERED -->
+<h3>Reviews</h3>
+{{#each reviews}}
+<div>
+  <h1><a href="/movies/{{this.movieId}}/reviews/{{this.id}}">{{this.title}}</a></h1>
+  <h2>{{this.movieTitle}}</h2>
+  <p>{{this.description}}</p>
+  <p><a href="/movies/{{this.movieId}}/reviews/{{this.id}}/edit">Edit</a></p>
+  <p><form method="POST" action="/movies/{{this.movieId}}/reviews/{{this.id}}?_method=DELETE">
+      <button class="btn btn-primary" type="submit">Delete</button>
+  </form></p>
+</div>
+{{/each}}
+<br><br><br><br>
