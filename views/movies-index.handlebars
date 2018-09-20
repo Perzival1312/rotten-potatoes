@@ -1,0 +1,28 @@
+<h1>Hello Movies!</h1>
+{{#each movies}}
+
+
+    <style>
+    img {
+        border: 1px solid #ddd; /* Gray border */
+        border-radius: 4px;  /* Rounded border */
+        padding: 2px; /* Some padding */
+        width: 150px; /* Set a small width */
+    }
+    /* Add a hover effect (blue shadow) */
+    img:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+    </style>
+    <body>
+    <a href="/movies/{{this.id}}">
+      <img src="https://image.tmdb.org/t/p/w500{{this.poster_path}}">
+    </a>
+    </body>
+    <li><a href="/movies/{{this.id}}">
+    <div class="movieLink">
+      <h2 style=color:#000;><strong>{{this.title}}</strong></h2>
+    </div>
+  </a></li>
+  <hr>
+{{/each}}
