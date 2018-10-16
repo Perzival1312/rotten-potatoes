@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 app.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id }).then(movie => {
     Review.find({ movieId: req.params.id }).then(reviews => {
-      res.render('movies-show', { movie: movie, reviews: reviews });
+      // res.render('movies-show', { movie: movie, reviews: reviews });
       if (movie.video) {
         moviedb.movieVideos({ id: req.params.id }).then(videos => {
           movie.trailer_youtube_id = videos.results[0].key
@@ -43,7 +43,7 @@ app.get('/movies/:id', (req, res) => {
         renderTemplate(movie)
       }
       function renderTemplate(movie)  {
-        res.render('movies-show', { movie: movie });
+        res.render('movies-show', { movie: movie, reviews: reviews });
       }
     })
   }).catch(console.error)
@@ -60,5 +60,6 @@ app.get('/movies/:id/reviews/:id', (req, res) => {
     console.log(err.message)
   });
 });
-
+const port = process.env.PORT || 3000;
+app.listen(port);
   module.exports = app;

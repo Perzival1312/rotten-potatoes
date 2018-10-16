@@ -18,9 +18,13 @@
 <div class="text-right">
     <a href="/movies/{{movie.id}}/reviews/new" class="btn btn-primary">Write Review</a>
 </div>
+<div class="text-left">
+  <h3>Reviews</h3>
+</div>
+
 <br><br><br>
 <!-- REVIEWS IN COLOUMNS 4 PER ROW PREFERED -->
-<h3>Reviews</h3>
+<!-- <h3>Reviews</h3> -->
 {{#each reviews}}
 <div>
   <h1><a href="/movies/{{this.movieId}}/reviews/{{this.id}}">{{this.title}}</a></h1>

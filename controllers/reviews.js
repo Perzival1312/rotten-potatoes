@@ -8,9 +8,9 @@ module.exports = function (app, Review) {
   //     })
   // });
   // NEW
-    app.get('/movies/:movieId/reviews/new', (req,res) => {
-      res.render('reviews-new', { movieId: req.params.movieId })
-    });
+  app.get('/movies/:movieId/reviews/new', (req,res) => {
+    res.render('reviews-new', { movieId: req.params.movieId })
+  });
 // CREATE
   app.post('/movies/:movieId/reviews', (req,res) => {
     Review.create(req.body).then((review) =>{
@@ -47,7 +47,7 @@ module.exports = function (app, Review) {
     })
   })
 // start
-  app.listen(3000, () => {
-    console.log('App listening on port 3000!')
-  });
+  // app.listen(3000, () => {
+  //   console.log('App listening on port 3000!')
+  // });
 }

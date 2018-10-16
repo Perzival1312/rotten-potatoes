@@ -1,6 +1,6 @@
-URL	      HTTP VERB	  ACTION	   WHAT IT DOES
-/movies	      GET	    index	     See all movies
-/movies/:id	  GET	    show	     See one movie
+// URL	      HTTP VERB	  ACTION	   WHAT IT DOES
+// /movies	      GET	    index	     See all movies
+// /movies/:id	  GET	    show	     See one movie
 
 const MovieDb = require('moviedb-promise')
 const moviedb = new MovieDb('de629d8abe9509713535b1ecc0f4cc0f')
