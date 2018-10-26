@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const app = express()
 const Comment = require('./models/comment')
 const Review = require('./models/review')
+app.use(express.static('./public'));
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes', { useNewUrlParser: true });
 
@@ -62,4 +63,5 @@ app.get('/movies/:id/reviews/:id', (req, res) => {
 });
 const port = process.env.PORT || 3000;
 app.listen(port);
-  module.exports = app;
+console.log(port);
+module.exports = app;
