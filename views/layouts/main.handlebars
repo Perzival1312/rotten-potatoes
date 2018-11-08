@@ -3,51 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Rotten Potatoes</title>
-  <!-- <script type="text/javascript">
-    alert("hello")
-  </script> -->
-  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-  <!-- <script src="./public/javascript/script.js"> -->
-  <script type="text/javascript">
-  // <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"> -->
-  // const axios = require('axios');
-  // const axios = require('axios');
-  // console.log("hello")
-  alert("hello")
-  // Make a request to the color api
-  axios.get('http://www.thecolorapi.com/id?hex=24B1E0')
-  // alert("Hello World!")
-    .then(function (response) {
-      // handle success
-      alert("Hello World!")
-      // console.log("hello")
-      alert(response.hex.clean);
-    })
-    .catch(function (error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      // that falls out of the range of 2xx
-      alert(error.response.data);
-      alert(error.response.status);
-      alert(error.response.headers);
-    } else if (error.request) {
-      // The request was made but no response was received
-      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-      // http.ClientRequest in node.js
-      alert(error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      alert('Error', error.message);
-    }
-    alert(error.config);
-  });
-    // .catch(function (error) {
-      // handle error
-      // console.log(error);
-    // });
-  </script>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
@@ -55,8 +11,8 @@
   <div class="container">
     {{{body}}}
   </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript" src="/javascript/script.js"></script>
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
